@@ -9,9 +9,9 @@ The application returns user-controlled input to the page without sufficient con
 | Field | Value |
 |---|---|
 | Environment | Authorized DVWA lab |
-| Security level | `[RECORD LEVEL]` |
+| Security level | Low and High |
 | Severity | Medium |
-| Status | Testing |
+| Status | Confirmed |
 
 ## Objective
 
@@ -56,5 +56,15 @@ In a real application, reflected XSS could support phishing, page-content modifi
 
 Repeat the same harmless input at a stronger DVWA security level. The expected result is that the input is encoded, rejected, or displayed only as text.
 
-`[ADD ACTUAL RETEST RESULT]`
+At the Low security level, the test payload executed and produced an alert containing "DVWA lab." After changing DVWA to High and submitting the identical payload, no alert executed and the page returned only "Hello." This confirms that the High setting filtered this specific script-tag payload.
+
+## Evidence
+
+### High Security Configuration
+
+![DVWA configured to High security](../screenshots/dvwa-security-level-high.png)
+
+### High-Security Retest
+
+![Reflected XSS payload filtered at High security](../screenshots/reflected-xss-high-filtered.png)
 
