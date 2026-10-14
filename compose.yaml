@@ -1,0 +1,14 @@
+services:
+  dvwa:
+    image: vulnerables/web-dvwa:latest
+    container_name: dvwa-lab
+    restart: "no"
+    ports:
+      - "127.0.0.1:4280:80"
+    networks:
+      - dvwa-lab
+
+networks:
+  dvwa-lab:
+    name: dvwa-isolated-lab
+
